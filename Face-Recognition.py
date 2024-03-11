@@ -2,7 +2,7 @@ import cv2
 import os
 import imutils
 
-person = 'Juanpa'
+person = 'Gera'
 dataPath= "Recognition\data"
 trainingVideosPath = "Recognition\VIDEOS4Training"
 outPutVideoPath = dataPath + "\\" + person
