@@ -1,2 +1,7 @@
 *.jpg
 *.mp4
+modeloEigenFace.xml
+modeloLBPHFace.xml
+Emotions/modeloEigenFaces.xml
+Emotions/modeloLBPH.xml
+Emotions/modeloFisherFaces.xml
