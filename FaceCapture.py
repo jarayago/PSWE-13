@@ -2,7 +2,7 @@ import cv2
 import os
 import imutils
 
-person = 'Gera'
+person = 'Juanpa'
 dataPath= "Recognition\data"
 trainingVideosPath = "Recognition\VIDEOS4Training"
 outPutVideoPath = dataPath + "\\" + person
@@ -20,7 +20,7 @@ if not os.path.exists(inputVideo):
 
 cap = cv2.VideoCapture(inputVideo)
 FACE_LIB = cv2.CascadeClassifier("lib\haarcascade_frontalface_default.xml")
-MAX_FACES_NUMBER = 300
+MAX_FACES_NUMBER = 500
 FACES_COUNT = 0
 
 while True:
