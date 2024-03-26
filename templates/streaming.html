@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+
+{% block title %}Video Streaming{% endblock %}
+
+{% block content %}
+<div class="w-full max-w-lg">
+    <video id="video" class="w-full" autoplay></video>
+    <div class="mt-4 flex justify-center">
+        <button id="startButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4">Start Streaming</button>
+        <button id="stopButton" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Stop Streaming</button>
+    </div>
+</div>
+
+<script>
+    const videoElement = document.getElementById('video');
+    const startButton = document.getElementById('startButton');
+    const stopButton = document.getElementById('stopButton');
+
+    // Función para capturar el video del cliente
+    async function captureVideo() {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        videoElement.srcObject = stream;
+    }
+
+    // Función para detener la captura de video
+    function stopCapture() {
+        const stream = videoElement.srcObject;
+        const tracks = stream.getTracks();
+
+        tracks.forEach(track => track.stop());
+        videoElement.srcObject = null;
+    }
+
+    startButton.addEventListener('click', () => {
+        captureVideo();
+    });
+
+    stopButton.addEventListener('click', () => {
+        stopCapture();
+    });
+</script>
+{% endblock %}

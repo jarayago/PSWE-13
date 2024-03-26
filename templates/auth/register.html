@@ -1,0 +1,46 @@
+<!-- register.html -->
+{% extends 'index.html' %}
+
+{% block title %}Video Streaming{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex flex-col  py-12 bg-gray-50 sm:px-6 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+        <h2 class="text-2xl font-bold mb-4">Register</h2>
+        {% if error %}
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4" role="alert">
+                {{ error }}
+            </div>
+        {% endif %}
+        <form id="registerForm" action="/register" method="POST">
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email:</label>
+                <input type="email" id="email" name="email" class="w-full border border-gray-300 rounded px-3 py-2">
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-sm font-medium text-gray-700">Password:</label>
+                <input type="password" id="password" name="password" class="w-full border border-gray-300 rounded px-3 py-2">
+            </div>
+            <div class="mb-4">
+                <label for="confirm_password" class="block text-sm font-medium text-gray-700">Confirm Password:</label>
+                <input type="password" id="confirm_password" name="confirm_password" class="w-full border border-gray-300 rounded px-3 py-2">
+            </div>
+            <button id="submitButton" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" disabled>Register</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    const passwordInput = document.getElementById('password');
+    const confirmInput = document.getElementById('confirm_password');
+    const submitButton = document.getElementById('submitButton');
+    
+    confirmInput.addEventListener('input', () => {
+        if (confirmInput.value === passwordInput.value) {
+            submitButton.removeAttribute('disabled');
+        } else {
+            submitButton.setAttribute('disabled', true);
+        }
+    });
+</script>
+{% endblock %}

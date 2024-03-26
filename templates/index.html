@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Baby Streaming{% endblock %}</title>
+    <!-- Agregar los estilos de Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Agregar estilos personalizados si es necesario -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="bg-gray-100">
+
+    {% include 'navbar.html' %}
+
+    <!-- Content -->
+    <div class="container mx-auto px-4 py-8">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Script to toggle theme -->
+    <script>
+        const toggleThemeButton = document.getElementById('toggleTheme');
+        const body = document.body;
+
+        toggleThemeButton.addEventListener('click', () => {
+            body.classList.toggle('dark');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{% if user %}
+  {% set navigation_bar = [
+    ('stream', 'Streaming'),
+    ('auth.signout', 'Sign out')
+  ] %}
+{% else %}
+  {% set navigation_bar = [
+    ('auth.signin', 'Login')
+  ] %}
+{% endif %}
+
+{% set active_page = active_page|default('index') %}
+
+{% block body %}
+  <!-- Navbar -->
+  <nav class="bg-gray-800 p-4 text-white flex justify-between items-center">
+    {% for id, caption in navigation_bar %}
+      {% if id == 'auth.signout' %}
+        <form action="{{ url_for(id) }}" method="post">
+          <button class="btn btn-outline btn-error no-animation">{{ caption }}</button>
+        </form>
+      {% else %}
+        <a class="btn btn-ghost no-animation {{ 'btn-active' if active_page == id else '' }}" href="{{ url_for(id) }}">{{ caption }}</a>
+      {% endif %}
+    {% endfor %}
+  </nav>
+{% endblock %}

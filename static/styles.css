@@ -1,0 +1,24 @@
+
+@import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
+
+
+/* Estilos personalizados */
+.theme-dark {
+    /* Estilos para el modo oscuro */
+    --color-background: #1f2937;
+    --color-text: #f9fafb;
+    /* Agrega más estilos según sea necesario */
+}
+
+.theme-light {
+    /* Estilos para el modo claro */
+    --color-background: #737f8a;
+    --color-text: #1f2937;
+    /* Agrega más estilos según sea necesario */
+}
+
+/* Aplica las variables CSS personalizadas */
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
