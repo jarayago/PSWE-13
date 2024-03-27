@@ -60,21 +60,6 @@ def stream():
 def video():
     return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    if request.method == 'POST':
-        users_email = request.form['email']
-        users_password  = request.form['password']
-        # Crear un nuevo usuario en Supabase
-        user = supabase.auth.sign_up({'email':users_email, 'password':users_password })
-        if user['status_code'] == 200:
-            # Usuario creado con éxito, redirigir a la página de inicio
-            return redirect('/')
-        else:
-            # Error al crear el usuario, mostrar mensaje de error
-            return render_template('register.html', error=user['error']['message'])
-    else:
-        return render_template('register.html')
 
 @app.route("/dashboard")
 @login_required

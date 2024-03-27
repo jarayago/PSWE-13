@@ -41,7 +41,7 @@ def signin_with_github():
     return redirect(resp.url)
 
 
-@auth.route("/signup", methods=["GET", "POST"])
+@auth.route("/register", methods=["GET", "POST"])
 def signup():
     form = AuthForm()
     if form.validate_on_submit():
@@ -63,7 +63,7 @@ def signup():
         except AuthApiError as message:
             flash(message, "error")
 
-    return render_template("auth/signup.html", form=form)
+    return render_template("auth/register.html", form=form)
 
 
 @auth.route("/signout", methods=["POST"])
