@@ -155,6 +155,15 @@ async def javascript(request):
     content = open(os.path.join(ROOT, "client.js"), "r").read()
     return web.Response(content_type="application/javascript", text=content)
 
+async def index2(request):
+    content = open(os.path.join(ROOT, "index2.html"), "r").read()
+    return web.Response(content_type="text/html", text=content)
+
+
+async def javascript2(request):
+    content = open(os.path.join(ROOT, "client2.js"), "r").read()
+    return web.Response(content_type="application/javascript", text=content)
+
 
 async def offer(request):
     params = await request.json()
@@ -264,7 +273,9 @@ if __name__ == "__main__":
     app = web.Application()
     app.on_shutdown.append(on_shutdown)
     app.router.add_get("/", index)
+    app.router.add_get("/index2", index2)
     app.router.add_get("/client.js", javascript)
+    app.router.add_get("/client2.js", javascript2)
     app.router.add_post("/offer", offer)
     web.run_app(
         app, access_log=None, host=args.host, port=args.port, ssl_context=ssl_context
