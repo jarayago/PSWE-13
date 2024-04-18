@@ -1,0 +1,26 @@
+:root {
+  --white-font-family: "Inter", Helvetica;
+  --white-font-weight: 400;
+  --white-font-size: 12px;
+  --white-letter-spacing: 0px;
+  --white-line-height: normal;
+  --white-font-style: normal;
+  --lead-font-family: "Mulish", Helvetica;
+  --lead-font-weight: 700;
+  --lead-font-size: 24px;
+  --lead-letter-spacing: 0px;
+  --lead-line-height: normal;
+  --lead-font-style: normal;
+  --opciones-font-family: "Inter", Helvetica;
+  --opciones-font-weight: 400;
+  --opciones-font-size: 18px;
+  --opciones-letter-spacing: 0px;
+  --opciones-line-height: normal;
+  --opciones-font-style: normal;
+  --h1-light-font-family: "Inter", Helvetica;
+  --h1-light-font-weight: 100;
+  --h1-light-font-size: 30px;
+  --h1-light-letter-spacing: 0px;
+  --h1-light-line-height: normal;
+  --h1-light-font-style: normal;
+}
